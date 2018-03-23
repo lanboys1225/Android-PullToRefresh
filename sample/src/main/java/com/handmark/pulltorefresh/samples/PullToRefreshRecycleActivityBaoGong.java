@@ -20,11 +20,12 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.extras.recyclerview.PullToRefreshRecyclerView;
+import com.handmark.pulltorefresh.samples.loadinglayout.BaoGaoLoadingLayout;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class PullToRefreshRecycleActivity extends Activity{
+public class PullToRefreshRecycleActivityBaoGong extends Activity{
 	
 	static final int MENU_SET_MODE = 0;
 	
@@ -33,15 +34,17 @@ public class PullToRefreshRecycleActivity extends Activity{
 	private RecyclerView mRecyclerView;
 	private RecyclerViewAdapter mAdapter;
 	
-	private String[] mStrings = { "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi",
-			"Acorn", "Adelost", "Kevin" };
+	private String[] mStrings = { "Abbaye de Belloc"  };
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ptr_recycler);
 		mPullRefreshRecyclerView = (PullToRefreshRecyclerView) this.findViewById(R.id.pull_refresh_recycler);
-		//mPullRefreshRecyclerView.setHeaderLayout(new JingDongHeaderLayout(this));
+
+		mPullRefreshRecyclerView.setHeaderLayout(new BaoGaoLoadingLayout(this, Mode.PULL_FROM_START,
+				mPullRefreshRecyclerView.getPullToRefreshScrollDirection(), null));
+
 		mPullRefreshRecyclerView.setHasPullUpFriction(false); // 设置没有上拉阻力
 
 		mRecyclerView = mPullRefreshRecyclerView.getRefreshableView();
@@ -53,13 +56,13 @@ public class PullToRefreshRecycleActivity extends Activity{
 
 			@Override
 			public void onPullDownToRefresh(PullToRefreshBase<RecyclerView> refreshView) {
-				Toast.makeText(PullToRefreshRecycleActivity.this, "Pull Down!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(PullToRefreshRecycleActivityBaoGong.this, "Pull Down!", Toast.LENGTH_SHORT).show();
 				new GetDataTask().execute();
 			}
 
 			@Override
 			public void onPullUpToRefresh(PullToRefreshBase<RecyclerView> refreshView) {
-				Toast.makeText(PullToRefreshRecycleActivity.this, "Pull Up!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(PullToRefreshRecycleActivityBaoGong.this, "Pull Up!", Toast.LENGTH_SHORT).show();
 				new GetDataTask().execute();
 			}
 		});
@@ -137,7 +140,7 @@ public class PullToRefreshRecycleActivity extends Activity{
 		@Override
 		public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
-            		PullToRefreshRecycleActivity.this).inflate(android.R.layout.simple_list_item_1, parent,
+            		PullToRefreshRecycleActivityBaoGong.this).inflate(android.R.layout.simple_list_item_1, parent,
                     false));
             return holder;
 		}

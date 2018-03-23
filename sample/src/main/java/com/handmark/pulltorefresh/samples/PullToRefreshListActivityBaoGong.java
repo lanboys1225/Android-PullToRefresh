@@ -36,12 +36,13 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
+import com.handmark.pulltorefresh.samples.loadinglayout.BaoGaoLoadingLayout;
 import com.handmark.pulltorefresh.samples.loadinglayout.JingDongHeaderLayout;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public final class PullToRefreshListActivity extends ListActivity {
+public final class PullToRefreshListActivityBaoGong extends ListActivity {
 
 	static final int MENU_MANUAL_REFRESH = 0;
 	static final int MENU_DISABLE_SCROLL = 1;
@@ -59,7 +60,8 @@ public final class PullToRefreshListActivity extends ListActivity {
 		setContentView(R.layout.activity_ptr_list);
 
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
-        //mPullRefreshListView.setHeaderLayout(new JingDongHeaderLayout(this));
+        mPullRefreshListView.setHeaderLayout(new BaoGaoLoadingLayout(this, Mode.PULL_FROM_START,
+                mPullRefreshListView.getPullToRefreshScrollDirection(), null));
 		// 使用第二底部加载布局,要先禁止掉包含（Mode.PULL_FROM_END）的模式
 		// 如修改（Mode.BOTH为Mode.PULL_FROM_START）
 		// 修改（Mode.PULL_FROM_END 为Mode.DISABLE）
@@ -86,7 +88,7 @@ public final class PullToRefreshListActivity extends ListActivity {
 
 			@Override
 			public void onLastItemVisible() {
-				Toast.makeText(PullToRefreshListActivity.this, "End of List!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(PullToRefreshListActivityBaoGong.this, "End of List!", Toast.LENGTH_SHORT).show();
 			}
 		});
 

@@ -59,6 +59,14 @@
             android:name=".PullToRefreshRecycleActivity"
             android:label="PtR RecyclerView" >
         </activity>
+        <activity
+            android:name=".PullToRefreshRecycleActivityBaoGong"
+            android:label="PtR RecyclerView" >
+        </activity>
+        <activity
+            android:name=".PullToRefreshListActivityBaoGong"
+            android:label="PtR ListView" >
+        </activity>
     </application>
 
     <!-- For WebView Sample -->
