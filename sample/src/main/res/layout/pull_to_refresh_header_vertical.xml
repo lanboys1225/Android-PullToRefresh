@@ -24,7 +24,7 @@
                 android:padding="5dp"
                 android:src="@drawable/loading_icon"
             />
-
+            <!-- 这里宽高在内部设置  -->
             <ImageView
                 android:id="@+id/pull_to_refresh_image"
                 android:layout_width="0dp"

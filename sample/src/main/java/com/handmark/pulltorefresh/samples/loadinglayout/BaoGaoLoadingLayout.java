@@ -20,7 +20,7 @@ public class BaoGaoLoadingLayout extends LoadingLayoutCopy {
 
     private final Animation mRotateAnimation;
 
-    private boolean mRotateDrawableWhilePulling;
+    private boolean mRotateDrawableWhilePulling=true;
 
     CircleProgressDrawable circleProgressDrawable;
     private int max_progress = 95;
@@ -39,6 +39,7 @@ public class BaoGaoLoadingLayout extends LoadingLayoutCopy {
         mRotateAnimation.setDuration(ROTATION_ANIMATION_DURATION);
         mRotateAnimation.setRepeatCount(Animation.INFINITE);
         mRotateAnimation.setRepeatMode(Animation.RESTART);
+
         circleProgressDrawable = new CircleProgressDrawable(getResources().getColor(R.color.loading_color));
         mHeaderImage.setImageDrawable(circleProgressDrawable);
     }

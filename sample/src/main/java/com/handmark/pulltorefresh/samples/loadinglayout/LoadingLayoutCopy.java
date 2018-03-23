@@ -173,7 +173,10 @@ public abstract class LoadingLayoutCopy extends LoadingLayoutBase {
 
         // If we don't have a user defined drawable, load the default
         if (null == imageDrawable) {
-            imageDrawable = context.getResources().getDrawable(getDefaultDrawableResId());
+            int defaultDrawableResId = getDefaultDrawableResId();
+            if (!(defaultDrawableResId == 0)) {
+                imageDrawable = context.getResources().getDrawable(defaultDrawableResId);
+            }
         }
 
         // Set Drawable, and save width/height
@@ -267,6 +270,10 @@ public abstract class LoadingLayoutCopy extends LoadingLayoutBase {
     }
 
     public final void setLoadingDrawable(Drawable imageDrawable) {
+
+        if (imageDrawable == null) {
+            return;
+        }
         // Set Drawable
         mHeaderImage.setImageDrawable(imageDrawable);
         mUseIntrinsicAnimation = (imageDrawable instanceof AnimationDrawable);
