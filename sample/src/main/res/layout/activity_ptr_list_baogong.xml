@@ -18,7 +18,11 @@
         android:fastScrollEnabled="false"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
-        android:smoothScrollbar="true"/>
+        android:smoothScrollbar="true"
 
+        app:ptrListViewExtrasEnabled="false"
+    />
+
+    <!-- ptrListViewExtrasEnabled 表示是否开扩展 开启后，在创建 头的时候 有异常 导致bug -->
 
 </LinearLayout>

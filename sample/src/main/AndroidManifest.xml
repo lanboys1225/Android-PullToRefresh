@@ -67,6 +67,10 @@
             android:name=".PullToRefreshListActivityBaoGong"
             android:label="PtR ListView" >
         </activity>
+        <activity
+            android:name=".PullToRefreshWebViewActivityBaoGong"
+            android:label="PtR WebView" >
+        </activity>
     </application>
 
     <!-- For WebView Sample -->

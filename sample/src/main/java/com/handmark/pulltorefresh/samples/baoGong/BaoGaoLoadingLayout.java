@@ -1,8 +1,9 @@
-package com.handmark.pulltorefresh.samples.loadinglayout;
+package com.handmark.pulltorefresh.samples.baoGong;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 
@@ -20,7 +21,7 @@ public class BaoGaoLoadingLayout extends LoadingLayoutCopy {
 
     private final Animation mRotateAnimation;
 
-    private boolean mRotateDrawableWhilePulling=true;
+    private boolean mRotateDrawableWhilePulling = true;
 
     CircleProgressDrawable circleProgressDrawable;
     private int max_progress = 95;
@@ -40,8 +41,35 @@ public class BaoGaoLoadingLayout extends LoadingLayoutCopy {
         mRotateAnimation.setRepeatCount(Animation.INFINITE);
         mRotateAnimation.setRepeatMode(Animation.RESTART);
 
+        //FrameLayout parent = (FrameLayout) mHeaderImage.getParent();
+        //ImageView imageView = new ImageView(context);
+        //FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
+        //        FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
+        ////imageView.setLayoutParams(layoutParams);
+        ////parent.addView(imageView);
+        //parent.addView(imageView,0,layoutParams);
+        //imageView.setImageResource(R.drawable.loading_icon);
+
         circleProgressDrawable = new CircleProgressDrawable(getResources().getColor(R.color.loading_color));
+        //mHeaderImage.setBackgroundResource(R.drawable.loading_icon);
         mHeaderImage.setImageDrawable(circleProgressDrawable);
+
+        switch (mode) {
+            case PULL_FROM_END:
+                // Load in labels
+                mPullLabel = "上拉更多..";
+                mRefreshingLabel = "载入中..";
+                mReleaseLabel = "松开后刷新..";
+                break;
+
+            case PULL_FROM_START:
+            default:
+                // Load in labels
+                mPullLabel = "下拉刷新..";
+                mRefreshingLabel = "载入中..";
+                mReleaseLabel = "松开后刷新..";
+                break;
+        }
     }
 
     public void onLoadingDrawableSet(Drawable imageDrawable) {
@@ -60,6 +88,11 @@ public class BaoGaoLoadingLayout extends LoadingLayoutCopy {
             progress = max_progress;
         }
         circleProgressDrawable.setProgress(progress);
+
+        Log.d("onPullImpl", "===========================");
+        Log.d("onPullImpl", scaleOfLayout + "");
+        Log.d("onPullImpl", angle + "");
+        Log.d("onPullImpl", progress + "");
     }
 
     @Override

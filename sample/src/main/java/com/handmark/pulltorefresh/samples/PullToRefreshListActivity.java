@@ -36,6 +36,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
+import com.handmark.pulltorefresh.samples.loadinglayout.JingDongHeaderLayout;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -58,7 +59,7 @@ public final class PullToRefreshListActivity extends ListActivity {
 		setContentView(R.layout.activity_ptr_list);
 
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
-        //mPullRefreshListView.setHeaderLayout(new JingDongHeaderLayout(this));
+        mPullRefreshListView.setHeaderLayout(new JingDongHeaderLayout(this));
 		// 使用第二底部加载布局,要先禁止掉包含（Mode.PULL_FROM_END）的模式
 		// 如修改（Mode.BOTH为Mode.PULL_FROM_START）
 		// 修改（Mode.PULL_FROM_END 为Mode.DISABLE）

@@ -36,7 +36,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.extras.SoundPullEventListener;
-import com.handmark.pulltorefresh.samples.loadinglayout.BaoGaoLoadingLayout;
+import com.handmark.pulltorefresh.samples.baoGong.BaoGaoLoadingLayout;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -56,7 +56,7 @@ public final class PullToRefreshListActivityBaoGong extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_ptr_list);
+		setContentView(R.layout.activity_ptr_list_baogong);
 
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
         mPullRefreshListView.setHeaderLayout(new BaoGaoLoadingLayout(this, Mode.PULL_FROM_START,

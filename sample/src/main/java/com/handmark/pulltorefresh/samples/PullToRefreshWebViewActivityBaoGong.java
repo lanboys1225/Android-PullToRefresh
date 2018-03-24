@@ -22,7 +22,7 @@ import android.webkit.WebViewClient;
 
 import com.handmark.pulltorefresh.library.PullToRefreshWebView;
 
-public final class PullToRefreshWebViewActivity extends Activity {
+public final class PullToRefreshWebViewActivityBaoGong extends Activity {
 
 	PullToRefreshWebView mPullRefreshWebView;
 	WebView mWebView;
@@ -31,14 +31,14 @@ public final class PullToRefreshWebViewActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_ptr_webview);
+		setContentView(R.layout.activity_ptr_webview_baogong);
 
 		mPullRefreshWebView = (PullToRefreshWebView) findViewById(R.id.pull_refresh_webview);
 		mWebView = mPullRefreshWebView.getRefreshableView();
 
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		mWebView.setWebViewClient(new SampleWebViewClient());
-		mWebView.loadUrl("http://www.baidu.com");
+		mWebView.loadUrl("https://www.baidu.com");
 
 	}
 

@@ -20,6 +20,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.extras.recyclerview.PullToRefreshRecyclerView;
+import com.handmark.pulltorefresh.samples.loadinglayout.JingDongHeaderLayout;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -41,7 +42,7 @@ public class PullToRefreshRecycleActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ptr_recycler);
 		mPullRefreshRecyclerView = (PullToRefreshRecyclerView) this.findViewById(R.id.pull_refresh_recycler);
-		//mPullRefreshRecyclerView.setHeaderLayout(new JingDongHeaderLayout(this));
+		mPullRefreshRecyclerView.setHeaderLayout(new JingDongHeaderLayout(this));
 		mPullRefreshRecyclerView.setHasPullUpFriction(false); // 设置没有上拉阻力
 
 		mRecyclerView = mPullRefreshRecyclerView.getRefreshableView();

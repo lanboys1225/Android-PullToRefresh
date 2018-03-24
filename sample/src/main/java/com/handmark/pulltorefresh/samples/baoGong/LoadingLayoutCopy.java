@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.handmark.pulltorefresh.samples.loadinglayout;
+package com.handmark.pulltorefresh.samples.baoGong;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -37,9 +37,9 @@ import android.widget.TextView;
 import com.handmark.pulltorefresh.library.LoadingLayoutBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Orientation;
-import com.handmark.pulltorefresh.library.R;
 import com.handmark.pulltorefresh.library.internal.Utils;
 import com.handmark.pulltorefresh.library.internal.ViewCompat;
+import com.handmark.pulltorefresh.samples.R;
 
 @SuppressLint("ViewConstructor")
 public abstract class LoadingLayoutCopy extends LoadingLayoutBase {
@@ -61,9 +61,9 @@ public abstract class LoadingLayoutCopy extends LoadingLayoutBase {
     protected final Mode mMode;
     protected final Orientation mScrollDirection;
 
-    private CharSequence mPullLabel;
-    private CharSequence mRefreshingLabel;
-    private CharSequence mReleaseLabel;
+    protected CharSequence mPullLabel;
+    protected CharSequence mRefreshingLabel;
+    protected CharSequence mReleaseLabel;
 
     public LoadingLayoutCopy(Context context, final Mode mode, final Orientation scrollDirection, TypedArray attrs) {
         super(context);
@@ -76,7 +76,7 @@ public abstract class LoadingLayoutCopy extends LoadingLayoutBase {
                 break;
             case VERTICAL:
             default:
-                LayoutInflater.from(context).inflate(R.layout.pull_to_refresh_header_vertical, this);
+                LayoutInflater.from(context).inflate(R.layout.pull_to_refresh_header_vertical_baogong, this);
                 break;
         }
 

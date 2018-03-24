@@ -20,7 +20,6 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.extras.recyclerview.PullToRefreshRecyclerView;
-import com.handmark.pulltorefresh.samples.loadinglayout.BaoGaoLoadingLayout;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -39,13 +38,16 @@ public class PullToRefreshRecycleActivityBaoGong extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_ptr_recycler);
+		setContentView(R.layout.activity_ptr_recycler_baogong);
 		mPullRefreshRecyclerView = (PullToRefreshRecyclerView) this.findViewById(R.id.pull_refresh_recycler);
 
-		mPullRefreshRecyclerView.setHeaderLayout(new BaoGaoLoadingLayout(this, Mode.PULL_FROM_START,
-				mPullRefreshRecyclerView.getPullToRefreshScrollDirection(), null));
+		//这样设置 拿不到xml属性值
+		//mPullRefreshRecyclerView.setHeaderLayout(new BaoGaoLoadingLayout(this, Mode.PULL_FROM_START,
+		//		mPullRefreshRecyclerView.getPullToRefreshScrollDirection(), null));
+		//mPullRefreshRecyclerView.setFooterLayout(new BaoGaoLoadingLayout(this, Mode.PULL_FROM_END,
+		//		mPullRefreshRecyclerView.getPullToRefreshScrollDirection(), null));
 
-		mPullRefreshRecyclerView.setHasPullUpFriction(false); // 设置没有上拉阻力
+		mPullRefreshRecyclerView.setHasPullUpFriction(true); // 设置没有上拉阻力
 
 		mRecyclerView = mPullRefreshRecyclerView.getRefreshableView();
 //		mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
