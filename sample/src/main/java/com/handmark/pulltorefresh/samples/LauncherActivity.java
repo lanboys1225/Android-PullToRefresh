@@ -26,7 +26,7 @@ public class LauncherActivity extends ListActivity {
 
 	public static final String[] options = { "ListView", "ExpandableListView", "GridView", "WebView", "ScrollView",
 			"Horizontal ScrollView", "ViewPager", "ListView Fragment", "WebView Advanced", "ListView in ViewPager",
-			"RecyclerView","包公有财RecyclerView","包公有财ListView","包公有财WebView"};
+			"RecyclerView","包公有财RecyclerView","包公有财ListView","包公有财WebView","包公有财LoadDataLayout"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +81,9 @@ public class LauncherActivity extends ListActivity {
 				break;
 			case 13:
 				intent = new Intent(this, PullToRefreshWebViewActivityBaoGong.class);
+				break;
+			case 14:
+				intent = new Intent(this, PullToRefreshLoadDataLayoutActivity.class);
 				break;
 		}
 

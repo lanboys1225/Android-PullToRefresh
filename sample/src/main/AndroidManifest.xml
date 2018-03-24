@@ -71,6 +71,11 @@
             android:name=".PullToRefreshWebViewActivityBaoGong"
             android:label="PtR WebView" >
         </activity>
+
+        <activity
+            android:name=".PullToRefreshLoadDataLayoutActivity"
+            android:label="PtR FrameLayout" >
+        </activity>
     </application>
 
     <!-- For WebView Sample -->
